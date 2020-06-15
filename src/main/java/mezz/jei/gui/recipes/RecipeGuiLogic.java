@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
+import mezz.jei.util.StringUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.inventory.Container;
@@ -275,7 +276,8 @@ public class RecipeGuiLogic implements IRecipeGuiLogic {
 	@Override
 	public String getPageString() {
 		int pageIndex = MathUtil.divideCeil(state.getRecipeIndex() + 1, state.getRecipesPerPage());
-		return pageIndex + "/" + pageCount(state.getRecipesPerPage());
+		return StringUtil.formatInteger(pageIndex) + "/" +
+				StringUtil.formatInteger(pageCount(state.getRecipesPerPage()));
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import mezz.jei.util.StringUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -26,7 +27,8 @@ public class DebugIngredientRenderer implements IIngredientRenderer<DebugIngredi
 		if (ingredient != null) {
 			FontRenderer font = getFontRenderer(minecraft, ingredient);
 			font.drawString("JEI", xPosition, yPosition, Color.RED.getRGB());
-			font.drawString("#" + ingredient.getNumber(), xPosition, yPosition + 8, Color.RED.getRGB());
+			font.drawString("#" + StringUtil.formatInteger(ingredient.getNumber()),
+					xPosition, yPosition + 8, Color.RED.getRGB());
 			GlStateManager.color(1, 1, 1, 1);
 		}
 	}

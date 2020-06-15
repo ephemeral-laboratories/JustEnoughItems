@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.google.common.collect.ImmutableList;
+import mezz.jei.util.StringUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.Gui;
@@ -51,7 +52,7 @@ public class AnvilRecipeWrapper implements IRecipeWrapper {
 		}
 
 		if (lastCost != 0) {
-			String costText = lastCost < 0 ? "err" : Integer.toString(lastCost);
+			String costText = lastCost < 0 ? "err" : StringUtil.formatInteger(lastCost);
 			String text = I18n.format("container.repair.cost", costText);
 
 			int mainColor = 0xFF80FF20;

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.Collections;
 import java.util.List;
 
+import mezz.jei.util.StringUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.item.ItemStack;
@@ -34,7 +35,8 @@ public class SmeltingRecipe implements IRecipeWrapper {
 		FurnaceRecipes furnaceRecipes = FurnaceRecipes.instance();
 		float experience = furnaceRecipes.getSmeltingExperience(output);
 		if (experience > 0) {
-			String experienceString = Translator.translateToLocalFormatted("gui.jei.category.smelting.experience", experience);
+			String experienceString = Translator.translateToLocalFormatted("gui.jei.category.smelting.experience",
+					StringUtil.formatFloat(experience));
 			FontRenderer fontRenderer = minecraft.fontRenderer;
 			int stringWidth = fontRenderer.getStringWidth(experienceString);
 			fontRenderer.drawString(experienceString, recipeWidth - stringWidth, 0, Color.gray.getRGB());

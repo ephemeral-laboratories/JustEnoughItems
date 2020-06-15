@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import mezz.jei.util.StringUtil;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -63,7 +64,8 @@ public class BrewingRecipeWrapper implements IRecipeWrapper {
 	public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
 		int brewingSteps = getBrewingSteps();
 		if (brewingSteps < Integer.MAX_VALUE) {
-			String steps = Translator.translateToLocalFormatted("gui.jei.category.brewing.steps", brewingSteps);
+			String steps = Translator.translateToLocalFormatted("gui.jei.category.brewing.steps",
+					StringUtil.formatInteger(brewingSteps));
 			minecraft.fontRenderer.drawString(steps, 70, 28, Color.gray.getRGB());
 		}
 	}

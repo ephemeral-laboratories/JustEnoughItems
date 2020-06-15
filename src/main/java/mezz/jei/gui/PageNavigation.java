@@ -2,7 +2,9 @@ package mezz.jei.gui;
 
 import java.awt.Color;
 import java.awt.Rectangle;
+import java.text.NumberFormat;
 
+import mezz.jei.util.StringUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
@@ -42,7 +44,7 @@ public class PageNavigation {
 		int pageNum = this.paged.getPageNumber();
 		int pageCount = this.paged.getPageCount();
 		FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
-		pageNumDisplayString = (pageNum + 1) + "/" + pageCount;
+		pageNumDisplayString = StringUtil.formatInteger(pageNum + 1) + "/" + StringUtil.formatInteger(pageCount);
 		int pageDisplayWidth = fontRenderer.getStringWidth(pageNumDisplayString);
 		pageNumDisplayX = ((backButton.x + backButton.width) + nextButton.x) / 2 - (pageDisplayWidth / 2);
 		pageNumDisplayY = backButton.y + Math.round((backButton.height - fontRenderer.FONT_HEIGHT) / 2.0f);
